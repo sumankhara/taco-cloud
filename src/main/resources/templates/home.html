@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<title>Taco Cloud</title>
-	</head>
-	
-	<body>
-		<h1>Welcome to...</h1>
-		<img th:src="@{/images/TacoCloud.png}">
-	</body>
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Taco Cloud</title>
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+		crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-4">Taco Cloud</h1>
+			<p class="lead"><b>Taco Cloud</b> simply put is lip-smacking food like you've never eaten before. 
+				This Mexican inspired restaurant beckons you to eat no holds barred at unbelievable prices!</p>
+		</div>
+	</div>
+	<div class="media">
+		<div class="container">
+  			<div class="row">
+  				<div class="col align-self-center">
+					<img th:src="@{/images/TacoCloud.png}">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
 </html>
