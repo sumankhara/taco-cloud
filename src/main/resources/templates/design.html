@@ -29,6 +29,15 @@
 		
 		<form method="post" th:object="${design}">
 			<div class="container">
+				<div th:if="${#fields.hasErrors()}">
+					<span class="text-danger">
+						Please correct the problems below and resubmit.
+					</span>
+					<br/>
+					<span class="text-danger" 
+						th:if="${#fields.hasErrors('ingredients')}"
+						th:errors="*{ingredients}">Name Error</span>
+				</div>
 				<div class="row">
 					<div class="col-md-6">
 						<div id="wraps">
@@ -87,6 +96,9 @@
 				<div class="form-group">
     				<label for="exampleFormControlInput1">Name your taco creation</label>
     				<input type="text" class="form-control" th:field="*{name}" placeholder="Name your taco...">
+    				<span class="text-danger" 
+						th:if="${#fields.hasErrors('name')}"
+						th:errors="*{name}">Name Error</span>
   				</div>
 				<button type="submit" class="btn btn-primary">Submit your Taco</button>
 			</div>
