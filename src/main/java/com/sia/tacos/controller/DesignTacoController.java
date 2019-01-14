@@ -27,12 +27,12 @@ public class DesignTacoController {
 
 	@GetMapping
 	public String showDesignForm(Model model) {
-		createIngredientsAndAddToModel(model);
-		
+		model.addAttribute("design", new Taco());
 		return "design";
 	}
 
-	private void createIngredientsAndAddToModel(Model model) {
+	@ModelAttribute
+	public void addIngredientsToModel(Model model) {
 		List<Ingredient> ingredients = Arrays.asList(
 				new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
 				new Ingredient("COTO", "Corn Tortilla", Type.WRAP), 
@@ -47,13 +47,11 @@ public class DesignTacoController {
 		Type[] types = Ingredient.Type.values();
 		for (Type type : types) {
 			model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
-		}
-		
-		model.addAttribute("design", new Taco());
+		}		
 	}
 	
 	@PostMapping
-	public String processDesign(@Valid @ModelAttribute("design") Taco design, Errors errors, Model model) {
+	public String processDesign(@Valid @ModelAttribute("design") Taco design, Errors errors) {
 		if(errors.hasErrors()) {
 			return "design";
 		}

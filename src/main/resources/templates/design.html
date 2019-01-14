@@ -33,10 +33,12 @@
 					<span class="text-danger">
 						Please correct the problems below and resubmit.
 					</span>
-					<br/>
+					<br/>					
+				</div>
+				<div>
 					<span class="text-danger" 
 						th:if="${#fields.hasErrors('ingredients')}"
-						th:errors="*{ingredients}">Name Error</span>
+						th:errors="*{ingredients}">Ingredient Error</span>
 				</div>
 				<div class="row">
 					<div class="col-md-6">
