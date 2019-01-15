@@ -1,5 +1,6 @@
 package com.sia.tacos.repository;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -44,7 +45,7 @@ public class JdbcOrderRepository implements OrderRepository {
 	private long saveOrderDetails(Order order) {
 		@SuppressWarnings("unchecked")
 		Map<String, Object> values = objectMapper.convertValue(order, Map.class);
-		values.put("pacedAt", order.getPlacedAt());
+		values.put("placedAt", new Timestamp(order.getPlacedAt().getTime()));
 		
 		long orderId = orderInserter.executeAndReturnKey(values).longValue();
 		return orderId;
