@@ -29,17 +29,17 @@
 		
 		<form method="post" th:object="${design}">
 			<div class="container">
-				<div th:if="${#fields.hasErrors()}">
+				<div th:if="${#fields.hasErrors('ingredients')}">
 					<span class="text-danger">
 						Please correct the problems below and resubmit.
 					</span>
 					<br/>					
 				</div>
-				<div>
+				<!-- <div>
 					<span class="text-danger" 
 						th:if="${#fields.hasErrors('ingredients')}"
 						th:errors="*{ingredients}">Ingredient Error</span>
-				</div>
+				</div> -->
 				<div class="row">
 					<div class="col-md-6">
 						<div id="wraps">

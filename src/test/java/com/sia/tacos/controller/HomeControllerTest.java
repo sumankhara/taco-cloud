@@ -10,15 +10,29 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import com.sia.tacos.repository.IngredientRepository;
+import com.sia.tacos.repository.OrderRepository;
+import com.sia.tacos.repository.TacoRepository;
+
 @RunWith(SpringRunner.class)
-@WebMvcTest()
+@WebMvcTest
 public class HomeControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
+	
+	@MockBean
+	private IngredientRepository ingredientRepository;
+
+	@MockBean
+	private TacoRepository designRepository;
+
+	@MockBean
+	private OrderRepository orderRepository;
 	
 	@Test
 	public void testHomePage() throws Exception {
